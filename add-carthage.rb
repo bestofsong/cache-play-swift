@@ -55,19 +55,28 @@ project.targets.each do |target|
     if build_filename_set.include?(path)
       next
     end
-    # create file fileRef
-    # add to group
     ref = the_frameworks_group.new_reference(path)
     frameworks_build_phases.add_file_reference(ref)
-    # create build file
-    # add build file to frameworks_build_phases
   end
-  # target.frameworks_build_phases.each do |framework_phase|
-  #   framework_phase.files.each do |build_file|
-  #     file_ref = build_file
-  #     path = file_ref.path
-  #   end
-  # end
+
+  run_script_phases = target.shell_script_build_phases
+  script_phases_set = Set.new run_script_phases.map {|ph| ph.name}
+
+  script_phase_name = "Auto add frameworks for Carthage"
+  if !script_phases_set.include?(script_phase_name)
+    phase = target.new_shell_script_build_phase(script_phase_name)
+    phase.input_paths = carthage_framework_files_ios.map {|path| "$(SRCROOT)/#{path}"}
+    phase.output_paths = carthage_framework_files_ios.map do |path|
+      "$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/#{File.basename(path)}"
+    end
+    phase.shell_script = "/usr/local/bin/carthage copy-frameworks"
+  end
+
+  script_phase_name = "Check deps update for Carthage"
+  if !script_phases_set.include?(script_phase_name)
+    phase = target.new_shell_script_build_phase(script_phase_name)
+    phase.shell_script = "/usr/local/bin/carthage outdated --xcode-warnings"
+  end
 end
 
 project.save
