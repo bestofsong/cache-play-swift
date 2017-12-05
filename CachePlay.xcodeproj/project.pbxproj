@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701DE1256B1522937589C4E6 /* Pods_CachePlay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795BE677B7CB8C50C501CB49 /* Pods_CachePlay.framework */; };
 		8AB119971FD5521D00FDDF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB119961FD5521D00FDDF3E /* AppDelegate.swift */; };
 		8AB119991FD5521D00FDDF3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB119981FD5521D00FDDF3E /* ViewController.swift */; };
 		8AB1199C1FD5521D00FDDF3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1199A1FD5521D00FDDF3E /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		795BE677B7CB8C50C501CB49 /* Pods_CachePlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CachePlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8303177F359DF9F5E3D4A7DF /* Pods-CachePlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CachePlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay.release.xcconfig"; sourceTree = "<group>"; };
 		8AB119931FD5521D00FDDF3E /* CachePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CachePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB119961FD5521D00FDDF3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AB119981FD5521D00FDDF3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		8AB1199D1FD5521D00FDDF3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AB119A01FD5521D00FDDF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AB119A21FD5521D00FDDF3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B47B0870A8F17BAC539B5552 /* Pods-CachePlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CachePlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				701DE1256B1522937589C4E6 /* Pods_CachePlay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FF5959F7B99DEB6AC8E78E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				795BE677B7CB8C50C501CB49 /* Pods_CachePlay.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89CD401B9E75D5C61964E066 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B47B0870A8F17BAC539B5552 /* Pods-CachePlay.debug.xcconfig */,
+				8303177F359DF9F5E3D4A7DF /* Pods-CachePlay.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8AB1198A1FD5521D00FDDF3E = {
 			isa = PBXGroup;
 			children = (
 				8AB119951FD5521D00FDDF3E /* CachePlay */,
 				8AB119941FD5521D00FDDF3E /* Products */,
+				89CD401B9E75D5C61964E066 /* Pods */,
+				0FF5959F7B99DEB6AC8E78E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8AB119A51FD5521D00FDDF3E /* Build configuration list for PBXNativeTarget "CachePlay" */;
 			buildPhases = (
+				2DB6C7C49C08E985CD3BE5D6 /* [CP] Check Pods Manifest.lock */,
 				8AB1198F1FD5521D00FDDF3E /* Sources */,
 				8AB119901FD5521D00FDDF3E /* Frameworks */,
 				8AB119911FD5521D00FDDF3E /* Resources */,
+				D305634CF38D51C8D25F5886 /* [CP] Embed Pods Frameworks */,
+				2B81EA1CC20723B69C5A8A5C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,64 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B81EA1CC20723B69C5A8A5C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DB6C7C49C08E985CD3BE5D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CachePlay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D305634CF38D51C8D25F5886 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ZKUIKit/ZKUIKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ss-oc-core/ss_oc_core.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZKUIKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ss_oc_core.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8AB1198F1FD5521D00FDDF3E /* Sources */ = {
@@ -272,6 +357,7 @@
 		};
 		8AB119A61FD5521D00FDDF3E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B47B0870A8F17BAC539B5552 /* Pods-CachePlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -287,6 +373,7 @@
 		};
 		8AB119A71FD5521D00FDDF3E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8303177F359DF9F5E3D4A7DF /* Pods-CachePlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
