@@ -14,7 +14,12 @@ if !carthage_package_dir || carthage_package_dir.length <= 0
   Kernel.abort("缺少参数：Carthage根目录")
 end
 
+
 carthage_rameworks_path_ios = "#{carthage_package_dir}/Build/iOS"
+carthage_rameworks_path_ios_full = File.expand_path(carthage_rameworks_path_ios)
+current_root_path_full = File.expand_path('.')
+current_root_path_relative_to_root = carthage_rameworks_path_ios_full.slice(current_root_path_full.length + 1, carthage_rameworks_path_ios_full.length - current_root_path_full.length)
+
 carthage_framework_files_ios = Dir.entries(carthage_rameworks_path_ios)
 .select {|f| f.end_with?(".framework")}
 .map {|name| File.expand_path(name, carthage_rameworks_path_ios)}
@@ -77,6 +82,17 @@ project.targets.each do |target|
     phase = target.new_shell_script_build_phase(script_phase_name)
     phase.shell_script = "/usr/local/bin/carthage outdated --xcode-warnings"
   end
+
+  target.build_configurations.objects.each do |conf|
+    settings = conf.build_settings
+    paths = settings["FRAMEWORK_SEARCH_PATHS"]
+    if !paths
+      paths = ["$(inherited)"]
+      settings["FRAMEWORK_SEARCH_PATHS"] = paths
+    end
+    paths.push("$(SRCROOT)/#{current_root_path_relative_to_root}")
+  end
+
 end
 
 project.save
