@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swifter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

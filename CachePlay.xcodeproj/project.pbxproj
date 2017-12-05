@@ -14,6 +14,7 @@
 		8AB1199E1FD5521D00FDDF3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1199D1FD5521D00FDDF3E /* Assets.xcassets */; };
 		8AB119A11FD5521D00FDDF3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1199F1FD5521D00FDDF3E /* LaunchScreen.storyboard */; };
 		9DF9481DD5984273D095FF5B /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107A91EDA035E86BA4D85842 /* Swifter.framework */; };
+		F7B01CE71FD70131007DF03E /* CacheProxyServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B01CE61FD70131007DF03E /* CacheProxyServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8AB119A01FD5521D00FDDF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AB119A21FD5521D00FDDF3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B47B0870A8F17BAC539B5552 /* Pods-CachePlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CachePlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay.debug.xcconfig"; sourceTree = "<group>"; };
+		F7B01CE61FD70131007DF03E /* CacheProxyServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheProxyServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		8AB119951FD5521D00FDDF3E /* CachePlay */ = {
 			isa = PBXGroup;
 			children = (
+				F7B01CE51FD700D3007DF03E /* cache-proxy */,
 				8AB119961FD5521D00FDDF3E /* AppDelegate.swift */,
 				8AB119981FD5521D00FDDF3E /* ViewController.swift */,
 				8AB1199A1FD5521D00FDDF3E /* Main.storyboard */,
@@ -90,6 +93,14 @@
 				8AB119A21FD5521D00FDDF3E /* Info.plist */,
 			);
 			path = CachePlay;
+			sourceTree = "<group>";
+		};
+		F7B01CE51FD700D3007DF03E /* cache-proxy */ = {
+			isa = PBXGroup;
+			children = (
+				F7B01CE61FD70131007DF03E /* CacheProxyServer.swift */,
+			);
+			path = "cache-proxy";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			files = (
 				8AB119991FD5521D00FDDF3E /* ViewController.swift in Sources */,
 				8AB119971FD5521D00FDDF3E /* AppDelegate.swift in Sources */,
+				F7B01CE71FD70131007DF03E /* CacheProxyServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
