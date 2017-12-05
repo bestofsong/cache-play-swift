@@ -13,9 +13,11 @@
 		8AB1199C1FD5521D00FDDF3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1199A1FD5521D00FDDF3E /* Main.storyboard */; };
 		8AB1199E1FD5521D00FDDF3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1199D1FD5521D00FDDF3E /* Assets.xcassets */; };
 		8AB119A11FD5521D00FDDF3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB1199F1FD5521D00FDDF3E /* LaunchScreen.storyboard */; };
+		9DF9481DD5984273D095FF5B /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107A91EDA035E86BA4D85842 /* Swifter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		107A91EDA035E86BA4D85842 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
 		795BE677B7CB8C50C501CB49 /* Pods_CachePlay.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CachePlay.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8303177F359DF9F5E3D4A7DF /* Pods-CachePlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CachePlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-CachePlay/Pods-CachePlay.release.xcconfig"; sourceTree = "<group>"; };
 		8AB119931FD5521D00FDDF3E /* CachePlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CachePlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				701DE1256B1522937589C4E6 /* Pods_CachePlay.framework in Frameworks */,
+				9DF9481DD5984273D095FF5B /* Swifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				795BE677B7CB8C50C501CB49 /* Pods_CachePlay.framework */,
+				107A91EDA035E86BA4D85842 /* Swifter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -101,6 +105,8 @@
 				8AB119911FD5521D00FDDF3E /* Resources */,
 				D305634CF38D51C8D25F5886 /* [CP] Embed Pods Frameworks */,
 				2B81EA1CC20723B69C5A8A5C /* [CP] Copy Pods Resources */,
+				03A1B38489B719F592087724 /* Auto add frameworks for Carthage */,
+				C9E414D516CD73C16DDDF57E /* Check deps update for Carthage */,
 			);
 			buildRules = (
 			);
@@ -159,6 +165,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03A1B38489B719F592087724 /* Auto add frameworks for Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Swifter.framework",
+			);
+			name = "Auto add frameworks for Carthage";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Swifter.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 1;
+		};
 		2B81EA1CC20723B69C5A8A5C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +214,21 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C9E414D516CD73C16DDDF57E /* Check deps update for Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check deps update for Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+			showEnvVarsInLog = 1;
 		};
 		D305634CF38D51C8D25F5886 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -362,6 +400,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M863E7K5E6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CachePlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innobuddy.CachePlay;
@@ -378,6 +420,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M863E7K5E6;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CachePlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.innobuddy.CachePlay;
