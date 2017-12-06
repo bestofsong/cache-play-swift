@@ -10,4 +10,12 @@ public class CacheProxyServer: NSObject, URLSessionDataDelegate {
     return session
   }()
   
+  
+  static let instance: CacheProxyServer = {
+    let ret = CacheProxyServer()
+    return ret
+  }()
+  
+  func start() throws -> Void {
+  }
 }
